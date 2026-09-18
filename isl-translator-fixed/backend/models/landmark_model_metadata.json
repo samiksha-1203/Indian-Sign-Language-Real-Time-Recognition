@@ -1,0 +1,12 @@
+{
+  "model_name": "isl_landmark_mlp",
+  "feature_dim": 128,
+  "num_classes": 35,
+  "train_size": 29164,
+  "val_size": 6242,
+  "test_size": 6264,
+  "test_accuracy": 0.9995210766792297,
+  "test_loss": 0.008408709429204464,
+  "macro_f1": 0.9994506349409381,
+  "weighted_f1": 0.9995210314674419
+}

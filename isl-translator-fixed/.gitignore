@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Datasets & trained artifacts (large binaries - do not commit)
+backend/datasets/ISL/
+Indian/
+# Keep the active landmark model available for deployment; ignore only old
+# image-model artifacts if they are regenerated locally.
+backend/models/best_model.keras
+backend/models/final_model.keras
+backend/models/quick_model.keras
+backend/models/quick_final_model.keras
+backend/models/model_metadata.json
+backend/models/class_names.json
+backend/models/*.png
+backend/models/*.npy
+backend/models/*.csv
+backend/datasets/landmarks.npz
+backend/signspeak.db
+backend/*.log
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
