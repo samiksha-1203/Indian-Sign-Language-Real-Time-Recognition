@@ -28,7 +28,12 @@ SMOOTHING_WINDOW_SIZE = int(os.getenv("ISL_SMOOTHING_WINDOW", 7))
 SMOOTHING_MIN_STABLE = int(os.getenv("ISL_SMOOTHING_MIN_STABLE", 5))
 SMOOTHING_COOLDOWN_SEC = float(os.getenv("ISL_SMOOTHING_COOLDOWN_SEC", 1.0))
 
-CORS_ORIGINS = os.getenv(
-	"ISL_CORS_ORIGINS",
-	"http://localhost:5173,http://127.0.0.1:5173,https://isl-signspeak-ai.vercel.app",
-).split(",")
+_configured_origins = os.getenv("ISL_CORS_ORIGINS", "").split(",")
+CORS_ORIGINS = [origin.strip() for origin in _configured_origins if origin.strip() and origin.strip() != "*"]
+CORS_ORIGINS.extend([
+	origin for origin in (
+		"http://localhost:5173",
+		"http://127.0.0.1:5173",
+		"https://isl-signspeak-ai.vercel.app",
+	) if origin not in CORS_ORIGINS
+])
