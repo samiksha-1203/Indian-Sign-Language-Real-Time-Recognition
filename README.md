@@ -217,11 +217,20 @@ _Screenshots available after running the app locally:_
 
 ### Backend
 
+Windows PowerShell:
+
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
+
+If PowerShell blocks activation, run this once in PowerShell and then repeat
+the activation command:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 Place your extracted ISL dataset so the folder layout is:
@@ -265,13 +274,14 @@ python train_landmark.py --landmarks-path ../datasets/landmarks.npz --models-dir
 
 ```bash
 cd backend
-uvicorn app.main:app --reload --port 8000
+python -m uvicorn app.main:app --reload --port 8000
 ```
 
 **5. Start the frontend:**
 
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 
